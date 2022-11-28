@@ -309,7 +309,6 @@ ul {
 
   color: var(--primary-white);
   background-color: var(--accent-color);
-  box-shadow: 0px 4px 4px var(--eighth-shadow-color);
   border-radius: 4px;
   border: 0;
   cursor: pointer;
@@ -321,6 +320,12 @@ ul {
   width: 200px;
   height: 50px;
   padding: 10px 62px 10px 28px;
+
+  transition: box-shadow 250ms var(--timing-function);
+}
+
+.page-footer__btn:hover {
+  box-shadow: 0px 4px 4px var(--eighth-shadow-color);
 }
 
 .btn--active:active {
@@ -377,6 +382,11 @@ ul {
 
 .hero__btn {
   padding: 10px 32px;
+  transition: box-shadow 250ms var(--timing-function);
+}
+
+.hero__btn:hover {
+  box-shadow: 0px 4px 4px var(--eighth-shadow-color);
 }
 
 /* Features */
@@ -694,7 +704,7 @@ ul {
 .modal__input-textarea {
   margin-bottom: 20px;
   padding-left: 16px;
-  height: 96px;
+  height: 120px;
 
   font-size: 12px;
   line-height: 1.17;
@@ -726,29 +736,34 @@ ul {
   align-items: center;
 
   line-height: 1.71;
-  white-space: pre;
 }
 
+.modal__cell,
 .modal__icon-checkbox {
-  display: inline-block;
+  margin-right: 7px;
+}
+
+.modal__cell {
+  display: block;
   width: 16px;
   height: 15px;
-  margin-right: 7px;
 
   border: 2px solid var(--secondary-text-color);
   border-radius: 2px;
 }
 
+.modal__icon-checkbox,
+.modal__checkbox:checked ~ .modal__cell {
+  display: none;
+}
+
 .modal__checkbox:checked + .modal__icon-checkbox {
-  border-color: transparent;
-  background-image: url("../images/check.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-origin: border-box;
+  display: block;
 }
 
 .modal__form-link {
   color: var(--accent-color);
+  white-space: pre;
 }
 
 .modal__button-wrapper {
@@ -760,17 +775,19 @@ ul {
   height: 50px;
   padding: 10px 52px;
 
-  transition: background-color 250ms var(--timing-function);
+  transition: background-color 250ms var(--timing-function),
+    box-shadow 250ms var(--timing-function);
 }
 
 .modal__btn:hover,
 .modal__btn:focus {
   background-color: var(--active-button-color);
+  box-shadow: 0px 4px 4px var(--eighth-shadow-color);
 }
 
 /* PORTFOLIO */
 
-/* Types */
+/* Menu */
 
 .menu {
   display: flex;
@@ -794,6 +811,7 @@ ul {
   color: var(--secondary-text-color);
 
   background-color: var(--secondary-white);
+  box-shadow: none;
 
   transition: background-color 250ms var(--timing-function),
     color 250ms var(--timing-function), box-shadow 250ms var(--timing-function);
